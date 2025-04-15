@@ -1,0 +1,11 @@
+{% extends 'education/base.html' %}
+{% block content %}
+<h2>Teachers</h2>
+<ul class="list-group mt-3">
+  {% for teacher in teachers %}
+  <li class="list-group-item">
+    <strong>{{ teacher.name }}</strong> – Region: {{ teacher.region }} – Phone: {{ teacher.phone }}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

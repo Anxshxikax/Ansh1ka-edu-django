@@ -1,0 +1,41 @@
+{% extends 'education/base.html' %}
+{% block content %}
+
+<h1 class="text-center mb-4">Welcome to Ansh1ka Mobile Education</h1>
+
+<!-- 📘 Project Description -->
+<div class="alert alert-info text-center fs-5">
+    This project aims to create a mobile education system using technology to provide primary education to children from nomadic communities.
+</div>
+
+<!-- 📊 Progress Tracker -->
+<div class="card my-4 shadow-sm">
+  <div class="card-body">
+    <h4 class="card-title">📈 Overall Student Progress</h4>
+    <p>Total Lessons: {{ total_lessons }}</p>
+    <p>Average Completion Rate: {{ avg_completion }}%</p>
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar"
+           aria-valuenow="{{ avg_completion }}" aria-valuemin="0" aria-valuemax="100"
+           data-progress="{{ avg_completion }}">
+        {{ avg_completion }}%
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🔗 Navigation Buttons -->
+<div class="text-center mt-4">
+  <a href="/students/" class="btn btn-outline-primary m-2">View Students</a>
+  <a href="/teachers/" class="btn btn-outline-success m-2">View Teachers</a>
+  <a href="/lessons/" class="btn btn-outline-warning m-2">View Lessons</a>
+</div>
+
+<!-- 🧠 Script to Set Progress Bar Width (avoids CSS lint issues) -->
+<script>
+  const progressBar = document.querySelector('.progress-bar');
+  const value = progressBar.getAttribute('data-progress');
+  progressBar.style.width = value + '%';
+</script>
+
+{% endblock %}

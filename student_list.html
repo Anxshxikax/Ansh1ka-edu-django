@@ -1,0 +1,26 @@
+{% extends 'education/base.html' %}
+{% block content %}
+<h2>Students List</h2>
+<table class="table table-bordered table-hover mt-3">
+  <thead class="table-primary">
+    <tr>
+      <th>Name</th>
+      <th>Grade</th>
+      <th>Gender</th>
+      <th>Region</th>
+      <th>Teacher</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in students %}
+    <tr>
+      <td>{{ student.name }}</td>
+      <td>{{ student.grade }}</td>
+      <td>{{ student.gender }}</td>
+      <td>{{ student.region }}</td>
+      <td>{{ student.assigned_teacher }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

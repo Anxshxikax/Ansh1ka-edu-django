@@ -1,0 +1,12 @@
+{% extends 'education/base.html' %}
+{% block content %}
+<div class="card shadow p-4">
+  <h2>{{ lesson.title }}</h2>
+  <p><strong>Subject:</strong> {{ lesson.subject }}</p>
+  <p><strong>Grade:</strong> {{ lesson.grade }}</p>
+  <p><strong>Description:</strong> {{ lesson.description }}</p>
+  <p><strong>Uploaded by:</strong> {{ lesson.uploaded_by }}</p>
+  <a href="{{ lesson.content_file.url }}" class="btn btn-success mt-3" download>Download/View Content</a>
+</div>
+<a href="/lessons/" class="btn btn-secondary mt-3">← Back</a>
+{% endblock %}
